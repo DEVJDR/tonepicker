@@ -5,7 +5,13 @@ const axios = require("axios");
 require("dotenv").config();
 
 const app = express();
-app.use(cors());
+app.use(
+  cors({
+    origin: "https://tonepicker.vercel.app",
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+  })
+);
 app.use(express.json({ limit: "1mb" }));
 
 const CACHE_TTL_MS = Number(process.env.CACHE_TTL_MS || 60_000);
