@@ -1,7 +1,11 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
-// https://vite.dev/config/
+// https://vitejs.dev/config/
 export default defineConfig({
-  base: "./",  // important for Vercel
-});
+  plugins: [
+    react({
+      jsxRuntime: 'automatic', // 👈 ensures React import is not required
+    }),
+  ],
+})
