@@ -230,11 +230,13 @@ export default function App() {
 
     try {
       const prev = text;
-     const res = await axios.post(
-  `${import.meta.env.VITE_API_URL}/tone`,
+    const res = await axios.post(
+  `${import.meta.env.VITE_API_URL}/api/tone`,
   { text, axes },
   { signal: controller.signal }
 );
+
+
 
       const newText = res.data?.text ?? res.data?.result ?? "";
       if (!newText) throw new Error("Empty response");
