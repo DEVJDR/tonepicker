@@ -293,10 +293,13 @@ export default function App() {
           <label className="text-sm text-slate-600 mb-2 font-medium">
             Enter text
           </label>
-         <textarea
+      <textarea
+  value={text}  // <-- bind to state
+  onChange={(e) => setText(e.target.value)}  // <-- update state
   className="min-h-[300px] resize-y p-4 rounded-xl border border-slate-200 
              focus:ring-2 focus:ring-blue-400 focus:border-transparent text-slate-800 mb-4"
 />
+
 
           {/* Controls */}
           <div className="flex flex-wrap items-center gap-3 mt-6">
